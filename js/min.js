@@ -1,0 +1,1 @@
+function generateId(){let r=String.fromCharCode(Math.floor(25*Math.random()+65));do{let t=Math.floor(42*Math.random()+48);(t<58||t>64)&&(r+=String.fromCharCode(t))}while(r.length<32);return r}class Round{constructor(r){this.parent=r,this.id=generateId()}}class Tourney{constructor(){}Round(){return new Round(this)}}

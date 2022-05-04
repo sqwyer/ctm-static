@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "rootDirs": ["src"],
+        "outDir": "js",
+        "noImplicitAny": false,
+        "target": "ES2016",
+        "removeComments": true,
+        "typeRoots": ["./src/types"]
+    },
+    "compileOnSave": true
+}
