@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    padding: 2.5rem;
+}
+
+.light {
+    color: #aaa;
+}
+
+hr {
+    background: #ddd;
+    border: none;
+    padding: 1px;
+    margin: 1rem 0;
+}
+
+a {
+    color: dodgerblue;
+}
+
+a:hover {
+    color: navy;
+    transition: 0.2s;
+}

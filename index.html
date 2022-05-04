@@ -5,13 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTM</title>
+
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+
+    <div class="container">
+        <h1>CTM</h1>
+        <p>This is still in development.</p>
+        <br />
+        <p class="light">(There's probably stuff happening in console)</p>
+        <hr />
+        <a href="https://github.com/sqwyer/ctm-static">View on Github</a>
+    </div>
     
     <script src="./js/min.js"></script>
     <script>
         const t = new Tourney();
         const r = t.Round();
+
+        let p = t.Player({
+            name: 'A',
+            rating: 1000,
+            score: 0.0,
+            active: true
+        });
+
+        t.addPlayer(p);
 
         console.log(r);
     </script>
