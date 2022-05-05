@@ -23,27 +23,21 @@
     <script>
         const t = new Tourney();
 
-        let p = t.Player({
-            name: 'A',
-            rating: 1000,
-            score: 0.0,
-            active: true
-        });
-        t.addPlayer(p);
-        let r = t.Round();
-        document.getElementById('main').appendChild(r.generateDOMElement());
+        t.addPlayer(t.Player({name: 'A', rating: 1000, score: 0, active: true}));
+        t.addPlayer(t.Player({name: 'B', rating: 800, score: 0, active: true}));
+        t.addPlayer(t.Player({name: 'C', rating: 500, score: 0, active: true}));
 
-        let p2 = t.Player({
-            name: 'B',
-            rating: 800,
-            score: 0.0,
-            active: true
-        });
-        t.addPlayer(p2);
-        r = t.Round(r.id);
-        r.generateDOMElement(true);
+        let round = t.Round();
 
-        console.log(r);
+        // update round:
+        let playerD = t.Player({name: 'D', rating: 1100, score: 0, active: true});
+        t.addPlayer(playerD);
+        t.setPlayerScore(playerD.id, 1);
+        round = t.Round(round.id);
+        round.generateDOMElement();
+        // updated
+
+        document.getElementById('main').appendChild(round.generateDOMElement());
     </script>
 </body>
 </html>

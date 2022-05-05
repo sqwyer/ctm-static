@@ -26,6 +26,10 @@ class Tourney {
         return this.players.filter(self => self.active === true);
     }
 
+    public setPlayerScore(player: string, score: number) {
+        this.players[this.players.indexOf(this.getPlayer(player))].score = score;
+    }
+
     public getPlayerPool() {
         return this.players;
     }
