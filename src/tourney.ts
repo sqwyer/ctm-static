@@ -7,8 +7,8 @@ class Tourney {
         this.options = options;
     }
 
-    public Round() {
-        return new Round(this, this.getActivePlayers());
+    public Round(id?: string) {
+        return new Round(this, this.getActivePlayers(), id||undefined);
     }
 
     public Player(props: PrePlayer) {

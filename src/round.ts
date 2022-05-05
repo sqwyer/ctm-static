@@ -4,9 +4,9 @@ class Round {
     public players: Array<Player> = [];
     public active: boolean = true;
     public pairings: Array<Array<Player>>;
-    constructor(parent: Tourney, players: Array<Player>) {
+    constructor(parent: Tourney, players: Array<Player>, id?: string) {
         this.parent = parent;
-        this.id = generateId();
+        this.id = id || generateId();
         this.players = players;
         this.pair();
     }
@@ -25,26 +25,8 @@ class Round {
         return pairs;
     }
 
-    // [[user1, user2]]
-    // [[val1, val2, val3, val4, val5]]
-
-    public generateDOMElement() {
-        // console.log(this.pairings.map(self => ["x.", self[0].score, self[0].name, self[1].score, self[1].name]))
-        console.log(this.pairings.map(self => {
-            let c = (f: any) => (f==null||f==undefined);
-            if(c(self[0].score)) self[0].score = 0;
-            if(c(self[1].score)) self[1].score = 0;
-            if(c(self[0].name)) self[0].name = "Waiting";
-            if(c(self[1].name)) self[1].name = "Waiting";
-            return [
-                "x.",
-                self[0].score,
-                self[0].name,
-                self[1].score,
-                self[1].name
-            ];
-        }))
-        return generateTable(
+    public generateDOMElement(override?: boolean) {
+        let elem = generateTable(
             this.pairings.map(self => {
                 let c = (f: any) => (f==null||f==undefined);
                 if(c(self[0].score)) self[0].score = 0;
@@ -61,6 +43,12 @@ class Round {
             }),
             ["Board", "Black Score", "Black Player", "White Score", "White Player"]
         );
+
+        elem.id = this.id;
+
+        if(override && document.getElementById(this.id)) document.getElementById(this.id).replaceWith(elem);
+
+        return elem;
     }
 
     public extractParent() {

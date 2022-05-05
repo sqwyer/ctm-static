@@ -4,8 +4,8 @@ class Tourney {
         this.players = [];
         this.options = options;
     }
-    Round() {
-        return new Round(this, this.getActivePlayers());
+    Round(id) {
+        return new Round(this, this.getActivePlayers(), id || undefined);
     }
     Player(props) {
         return Object.assign(Object.assign({}, props), { id: generateId() });

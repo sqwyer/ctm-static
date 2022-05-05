@@ -29,12 +29,19 @@
             score: 0.0,
             active: true
         });
-
         t.addPlayer(p);
-
-        const r = t.Round();
-
+        let r = t.Round();
         document.getElementById('main').appendChild(r.generateDOMElement());
+
+        let p2 = t.Player({
+            name: 'B',
+            rating: 800,
+            score: 0.0,
+            active: true
+        });
+        t.addPlayer(p2);
+        r = t.Round(r.id);
+        r.generateDOMElement(true);
 
         console.log(r);
     </script>
