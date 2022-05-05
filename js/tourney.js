@@ -5,13 +5,16 @@ class Tourney {
         this.options = options;
     }
     Round() {
-        return new Round(this);
+        return new Round(this, this.getActivePlayers());
     }
     Player(props) {
         return Object.assign(Object.assign({}, props), { id: generateId() });
     }
     getPlayer(id) {
         return this.players.find(self => self.id === id);
+    }
+    getActivePlayers() {
+        return this.players.filter(self => self.active === true);
     }
     getPlayerPool() {
         return this.players;

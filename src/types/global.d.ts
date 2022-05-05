@@ -2,18 +2,18 @@ export {};
 
 declare global {
     type User = {
-        name: string;
-        id: string;
-        rating: number;
-        score: number|undefined;
-        active: true|false|undefined;
+        name: string|null;
+        id: string|null;
+        rating: number|null;
+        score: number|undefined|null;
+        active: true|false|undefined|null;
     }
     type PreUser = {
-        name: string;
-        id: undefined;
-        rating: number;
-        score: number|undefined;
-        active: true|false|undefined;
+        name: string|null;
+        id: undefined|null;
+        rating: number|null;
+        score: number|undefined|null;
+        active: true|false|undefined|null;
     }
     type Player = User;
     type PrePlayer = PreUser;

@@ -10,11 +10,11 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="root">
         <h1>CTM</h1>
         <p>This is still in development.</p>
         <br />
-        <p class="light">(There's probably stuff happening in console)</p>
+        <div id="main"></div>
         <hr />
         <a href="https://github.com/sqwyer/ctm-static">View on Github</a>
     </div>
@@ -22,7 +22,6 @@
     <script src="./js/min.js"></script>
     <script>
         const t = new Tourney();
-        const r = t.Round();
 
         let p = t.Player({
             name: 'A',
@@ -32,6 +31,10 @@
         });
 
         t.addPlayer(p);
+
+        const r = t.Round();
+
+        document.getElementById('main').appendChild(r.generateDOMElement());
 
         console.log(r);
     </script>

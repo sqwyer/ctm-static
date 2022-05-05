@@ -28,5 +28,39 @@ a {
 
 a:hover {
     color: navy;
-    transition: 0.2s;
+    transition: 0.1s;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+table tr:nth-child(odd) td:hover {
+    cursor: pointer;
+    background: #f8f8f8;
+}
+table tr:nth-child(even) td:hover {
+    cursor: pointer;
+    background: #e8e8e8;
+}
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    /* background-color: #04AA6D; */
+    /* color: white; */
+}
+table tr:nth-child(even) td.no-hover:hover {
+    background-color: #f2f2f2;
+    cursor: default;
+}
+table tr:nth-child(odd) td.no-hover:hover {
+    background-color: #fff;
 }
